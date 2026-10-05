@@ -2,18 +2,24 @@ import xlsx from 'xlsx'
 
 export class ExcelUtils {
 
-    static getDataFromExcel(filePath: string, sheetName: string) {
+  static getDataFromExcel(filePath: string, sheetName: string) {
 
-        try {
+    try {
+      const wb = xlsx.readFile(filePath)
 
-            const wb = xlsx.readFile(filePath)
-            const sheet = wb.Sheets[sheetName]
-            const data = xlsx.utils.sheet_to_json(sheet)
-            return data
+      const sheet = wb.Sheets[sheetName]
 
-        } catch (e) {
-            console.log(e);
+      if (!sheet) {
+        throw new Error(`Sheet "${sheetName}" not found in ${filePath}`)
+      }
 
-        }
+      const data = xlsx.utils.sheet_to_json(sheet)
+
+      return data
+
+    } catch (e) {
+      console.error('Error reading Excel file:', e)
+      throw e
     }
+  }
 }

@@ -1,19 +1,13 @@
 import { test, expect } from '@playwright/test'
 import { LoginPage } from '../pages/LoginPage'
 import { DashboardPage } from '../pages/DashboardPage'
-import { ExcelUtils } from '../utils/ExcelUtils'
-import path from 'path'
+import data from '../testdata/product.json'
 
-const filePath = path.join(__dirname, "../testdata/excel.xlsx")
+
 const sheetName = "Login"
 const productName = "ADIDAS ORIGINAL"
 
-let data
-try {
-     data = ExcelUtils.getDataFromExcel(filePath, sheetName)
-} catch (e) {
-    console.log(e);
-}
+
 let loginPageObj: LoginPage
 let dashboardPageObj: DashboardPage
 

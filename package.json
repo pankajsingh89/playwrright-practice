@@ -2,7 +2,12 @@
   "name": "demoblaze-playwright",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "fullTest":"npx playwright test",
+    "qa_env":"set ENV=qa&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts",
+    "stg_env":"set ENV=stg&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts",
+    "prod_env":"set ENV=prod&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,5 +19,8 @@
     "allure-playwright": "^3.12.2",
     "prettier": "^3.9.9",
     "xlsx": "^0.18.5"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5"
   }
 }
