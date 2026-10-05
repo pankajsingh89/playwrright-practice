@@ -7,6 +7,7 @@ import data from '../testdata/product.json'
 const sheetName = "Login"
 const productName = "ADIDAS ORIGINAL"
 
+test.describe.configure({mode:'serial'})
 
 let loginPageObj: LoginPage
 let dashboardPageObj: DashboardPage

@@ -10,22 +10,22 @@ console.log(process.env.EMAIL);
 console.log(process.env.BASE_URL);
 
 
-
-
-
 export default defineConfig({
   // Test cases location
   testDir: './tests',
 
   // Run tests sequentially
-  fullyParallel: false,
-  workers: 1,
+  fullyParallel: true,
+  workers: 3,
 
   // Retry failed tests
   retries: 0,
 
   // Generate HTML report
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    ['allure-playwright']
+  ],
 
   // Common settings for all tests
   use: {
@@ -48,6 +48,7 @@ export default defineConfig({
         headless: false,
         launchOptions: { slowMo: 50, },
         trace: 'on-first-retry',
+        
       },
     },
   ],

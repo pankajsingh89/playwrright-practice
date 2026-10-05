@@ -13,13 +13,13 @@ test.beforeEach('Common steps', async ({ page }) => {
 
 })
 
-test('Login into Application', async ({ page }) => {
+test('Login into Application',{tag:'@smoke'}, async ({ page }) => {
 
     await loginPageObj.loginIntoApplication(data.username, data.password)
     await expect(loginPageObj.homePageIdentifier).toBeVisible()
 })
 
-test('Login Into Application with invalid creds', async ({ page }) => {
+test('Login Into Application with invalid creds',{tag:'@regression'}, async ({ page }) => {
 
     await loginPageObj.loginIntoApplication(data.username, data.incorrectPassword)
     await expect(loginPageObj.errorMessage).toHaveText(" Incorrect email or password. ")

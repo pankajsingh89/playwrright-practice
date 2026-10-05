@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "fullTest":"npx playwright test",
-    "qa_env":"set ENV=qa&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts",
-    "stg_env":"set ENV=stg&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts",
-    "prod_env":"set ENV=prod&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts"
+    "fullTest": "npx playwright test",
+    "qa_env": "set ENV=qa&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts",
+    "stg_env": "set ENV=stg&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts",
+    "prod_env": "set ENV=prod&& npx playwright test tests/LoginPageTestUsingEnv.spec.ts",
+    "smokeTest": "npx playwright test -g smoke",
+    "regressionTest": "npx playwright test -g regression"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +18,7 @@
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.20.3",
     "allure-commandline": "^2.46.1",
-    "allure-playwright": "^3.12.2",
+    "allure-playwright": "^3.13.0",
     "prettier": "^3.9.9",
     "xlsx": "^0.18.5"
   },

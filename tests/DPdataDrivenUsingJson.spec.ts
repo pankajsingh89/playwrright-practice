@@ -18,7 +18,7 @@ test.beforeEach('Common steps', async({page})=>{
 })
 
 for(let product of data){
-    test(`Search and add the product  to cart for ${product.productName}`,async ()=>{
+    test(`Search and add the product  to cart for ${product.productName}`,{tag:'@smoke'},async ()=>{
         await loginPageObj.launchURL(product.url)
         await loginPageObj.loginIntoApplication(product.username,product.password)
         await dashboardPageObj.searchProduct(product.productName,1)
