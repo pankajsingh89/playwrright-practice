@@ -30,8 +30,6 @@ export class LoginPage{
         await this.email.fill(username)
         await this.password.fill(password)
         await this.loginBtn.click()
-
-        
     }
     
      async launchURL(url:string){
