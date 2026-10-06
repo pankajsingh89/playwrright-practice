@@ -3,7 +3,7 @@ import { log } from 'console';
 import dotenv from 'dotenv'
 import path from 'path'
 
-const ENV_NAME= process.env.ENV || 'prod'
+const ENV_NAME= process.env.ENV || 'qa'
 console.log(ENV_NAME)
 dotenv.config({ path:path.resolve(__dirname,'testdata', `${ENV_NAME}.env`)})
 console.log(process.env.EMAIL);
@@ -15,8 +15,8 @@ export default defineConfig({
   testDir: './tests',
 
   // Run tests sequentially
-  fullyParallel: true,
-  workers: 3,
+  fullyParallel: false,
+  workers: 1,
 
   // Retry failed tests
   retries: 0,
